@@ -26,5 +26,8 @@ urlpatterns = [
     path('login/', views.Login),
     path('newregistration/', views.NewRegistration),
     path('home/', views.Home),
-    # path('addmovie/<str:pk>', views.AddMovie),
+    path('addmovie/', views.AddMovie),
+    path('removemovie/', views.RemoveMovie),
+    path('searchmovie/', views.SearchMovie),
+    path('editrating/', views.EditRating),
 ]

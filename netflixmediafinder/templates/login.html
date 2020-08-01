@@ -8,3 +8,13 @@
     <input type="submit" value="Register"/>
   </form>
 </html>
+<form action="/searchmovie/" method="post">{% csrf_token %}
+  <input type="text" name="name" />
+  <input type="submit" value="Search"/>
+</form>
+<h1>Top User Rated Movies</h1>
+<ul>
+  {% for display in results%}
+    <li>{{display}}</li>
+  {% endfor %}
+</ul>

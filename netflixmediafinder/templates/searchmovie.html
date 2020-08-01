@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+</html>
+<h1>{{name}}</h1>
+<ul>
+  {% for display in results%}
+    <li>{{display}}</li>
+  {% endfor %}
+</ul>
+<form action="/login/" method="post">{% csrf_token %}
+  <input type="submit" value="Login"/>
+</form>

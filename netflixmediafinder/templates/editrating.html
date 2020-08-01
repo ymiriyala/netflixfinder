@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+  <form action="/home/" method="post">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Go Back"/>
+</html>

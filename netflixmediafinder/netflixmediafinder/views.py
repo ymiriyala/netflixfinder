@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db import connection
 from django.http import HttpResponseRedirect
-from .models import userreg, userlog
+from .models import userreg, userlog, insertMovie, removeMovie, searchMovie, editRating
 
 # def showdetails(request):
 #     cursor = connection.cursor()
@@ -32,7 +32,39 @@ def NewRegistration(request):
     return HttpResponseRedirect('/login/')
 
 def Login(request):
-    return render(request, 'login.html')
+    cursor = connection.cursor()
+    cursor.execute("call getTopTen(@p0, @p1, @p2)")
+    results = cursor.fetchall()
+    return render(request, 'login.html', {'results': results})
+
+def SearchMovie(request):
+    new_item = searchMovie(name = request.POST['name'])
+    cursor = connection.cursor()
+    cursor.execute("call searchIMDbTitles('" + new_item.name + "', @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)")
+    results = cursor.fetchall()
+    return render(request, 'searchmovie.html', {'results': results})
+
+def AddMovie(request):
+    new_item = insertMovie(password = request.POST['password'], username = request.POST['username'], name = request.POST['name'], rating = request.POST['rating'], userId = request.POST['userId'])
+    cursor = connection.cursor()
+    cursor.execute("call getTitleId('" + new_item.name + "', @p1)")
+    results = cursor.fetchall()
+    titleId = results[0][0]
+    cursor = connection.cursor()
+    cursor.callproc("addWatchInstance", [new_item.userId, titleId, new_item.rating])
+    return render(request, 'addmovie.html', {'username': new_item.username, 'password': new_item.password})
+
+def RemoveMovie(request):
+    new_item = removeMovie(password = request.POST['password'], username = request.POST['username'], userId = request.POST['userId'], titleId = request.POST['titleId'])
+    cursor = connection.cursor()
+    cursor.callproc("deleteWatchInstance", [new_item.userId, new_item.titleId])
+    return render(request, 'removemovie.html', {'username': new_item.username, 'password': new_item.password})
+
+def EditRating(request):
+    new_item = editRating(password = request.POST['password'], username = request.POST['username'], userId = request.POST['userId'], titleId = request.POST['titleId'], rating = request.POST['rating'])
+    cursor = connection.cursor()
+    cursor.callproc("updateRating", [new_item.userId, new_item.titleId, new_item.rating])
+    return render(request, 'editrating.html', {'username': new_item.username, 'password': new_item.password})
 
 def Home(request):
     new_item = userreg(username = request.POST['username'], password = request.POST['password'])
@@ -46,7 +78,6 @@ def Home(request):
     userId = results[0][0]
     name = results[0][1]
     cursor = connection.cursor()
-    cursor.execute("call getWatchedMovies(" + str(userId) + ", @p1)")
+    cursor.execute("call getWatchedMovies(" + str(userId) + ", @p1, @p2)")
     results = cursor.fetchall()
-    return render(request, 'home.html', {'results': results,'name': name})
-# def AddMovie(request, pk):
+    return render(request, 'home.html', {'results': results,'name': name, 'userId': userId, 'username': new_item.username, 'password': new_item.password})

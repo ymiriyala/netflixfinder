@@ -3,10 +3,30 @@
 <h1>{{name}}</h1>
 <ul>
   {% for display in results%}
-    <li>{{display}}</li>
+    <li>{{display}}
+      <form action="/removemovie/" method="post">{% csrf_token %}
+        <input type="hidden" name="userId" value="{{userId}}"/>
+        <input type="hidden" name="titleId" value="{{display.0}}"/>
+        <input type="hidden" name="username" value="{{username}}"/>
+        <input type="hidden" name="password" value="{{password}}"/>
+        <input type="submit" value="Remove Movie"/>
+      </form>
+      <form action="/editrating/" method="post">{% csrf_token %}
+        <input type="hidden" name="userId" value="{{userId}}"/>
+        <input type="hidden" name="titleId" value="{{display.0}}"/>
+        <input type="hidden" name="username" value="{{username}}"/>
+        <input type="hidden" name="password" value="{{password}}"/>
+        <input type="text" name="rating" />
+        <input type="submit" value="Edit Rating"/>
+      </form>
+    </li>
   {% endfor %}
 </ul>
-<!-- <form action="/addmovie/<str:pk>" method="post">{% csrf_token %}
+<form action="/addmovie/" method="post">{% csrf_token %}
   <input type="text" name="name" />
-  <input type="submit" value="Add"/>
-</form> -->
+  <input type="text" name="rating" />
+  <input type="submit" value="Add Movie"/>
+  <input type="hidden" name="userId" value="{{userId}}"/>
+  <input type="hidden" name="username" value="{{username}}"/>
+  <input type="hidden" name="password" value="{{password}}""/>
+</form>
