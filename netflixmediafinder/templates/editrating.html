@@ -1,6 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>The rating was successfully updated!</h3>
+<form action="/watchlist/" method="post">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Go Back"/>
+</form>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
   <form action="/home/" method="post">{% csrf_token %}
     <input type="hidden" name="username" value="{{username}}"/>
     <input type="hidden" name="password" value="{{password}}"/>
     <input type="submit" value="Go Back"/>
-</html>
+</html> -->

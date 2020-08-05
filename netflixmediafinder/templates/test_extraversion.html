@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1> Extraversion test </h1>
+	<form action="/userprofile/" method="post">{% csrf_token %}
+	    <input type="hidden" name="username" value="{{username}}"/>
+	    <input type="hidden" name="password" value="{{password}}"/>
+	    <input type="submit" value="Return to Profile"/>
+  	</form>
+    <p style="font-style:italic">The test was taken from https://www.psychologistworld.com/influence-personality/five-factor-test/test</p>
+  		<div>Please enter your answer to these questions with 5 being strongly agree and 1 being strongly disagree</div>
+	<form action="/updateattribute/" method="post">{% csrf_token %}
+  <input type="hidden" name="username" value="{{username}}"/>
+	<input type="hidden" name="password" value="{{password}}"/>
+	<input type="hidden" name="attribute" value="extraversion"/>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you make friends easily?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you like to cheer people up?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you know how to captivate a crowd?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q3">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you talk a lot?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q4">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you often take charge in discussions?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q5">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Don't mind the center of attention</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q6">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you feel energized after hanging out with new people?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q7">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Are you the life of the party?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q8">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do like to initiate conversation?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q9">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you warm up easily to others?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q10">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+    <input type="submit"/>
+
+  </form>
+{% endblock %}

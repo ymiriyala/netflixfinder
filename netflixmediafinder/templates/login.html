@@ -1,4 +1,99 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <form action="/userprofile/" method="post">{% csrf_token %}
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+    <input type="submit" value="Login"/>
+  </form>
+  <form action="/register/" method="post">{% csrf_token %}
+    <input type="submit" value="Register"/>
+  </form>
+  <form action="/searchmovie/" method="post">{% csrf_token %}
+    <input type="text" name="name" />
+    <input type="submit" value="Search"/>
+  </form>
+  <!-- <h1>Top User Rated Movies</h1>
+  <ul>
+    {% for display in results%}
+      <li>{{display.2}} {{display.1}} {{display.0}}</li>
+    {% endfor %}
+  </ul> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+      <h3>Top User Rated Movies</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">User Rating</th>
+              <th scope="col">IMDB Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for display in results %}
+            <tr>
+              <!-- <th scope="row">{{display.1}}</th> -->
+              <td>{{display.2}}</td>
+              <td>{{display.1}}</td>
+              <td>{{display.0}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm">
+      <h3>Highest Rated Movies By Year</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Year</th>
+              <th scope="col">Average Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for display in results2 %}
+            <tr>
+              <!-- <th scope="row">{{display.1}}</th> -->
+              <td>{{display.0}}</td>
+              <td>{{display.1}}</td>
+              <td>{{display.2}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm">
+      <h3>Most Popular Movies</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Year</th>
+              <th scope="col">Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for display in results3 %}
+            <tr>
+              <!-- <th scope="row">{{display.1}}</th> -->
+              <td>{{display.0}}</td>
+              <td>{{display.1}}</td>
+              <td>{{display.2}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- <!DOCTYPE html>
   <form action="/home/" method="post">{% csrf_token %}
     <input type="text" name="username" />
     <input type="text" name="password" />
@@ -18,3 +113,4 @@
     <li>{{display}}</li>
   {% endfor %}
 </ul>
+ -->

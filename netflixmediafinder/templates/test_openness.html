@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1> Openness test </h1>
+	<form action="/userprofile/" method="post">{% csrf_token %}
+	    <input type="hidden" name="username" value="{{username}}"/>
+	    <input type="hidden" name="password" value="{{password}}"/>
+	    <input type="submit" value="Return to Profile"/>
+  	</form>
+  	<p style="font-style:italic">The test was taken from https://www.psychologistworld.com/influence-personality/five-factor-test/test</p>
+  	<div>Please enter your answer to these questions with 5 being strongly agree and 1 being strongly disagree</div>
+	<form action="/updateattribute/" method="post"> {% csrf_token %}
+	<input type="hidden" name="username" value="{{username}}"/>
+	<input type="hidden" name="password" value="{{password}}"/>
+	<input type="hidden" name="attribute" value="openness"/>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you have a vivid imagination?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you enjoy the fantasy genre?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you look into the deeper side of things?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q3">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you get excited by new ideas?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q4">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you like poetry?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q5">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you like abstract ideas?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q6">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you have a rich vocabulary?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q7">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you enjoy going to museums?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q8">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you spend much of your day dreaming?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q9">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you engage in philosophical discussions?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q10">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+    <input type="submit"/>
+
+  </form>
+{% endblock %}

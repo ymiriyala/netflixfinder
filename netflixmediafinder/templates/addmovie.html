@@ -1,5 +1,25 @@
-<form action="/home/" method="post">{% csrf_token %}
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error == 0 %}
+	<h3>Your movie was added successfully!</h3>
+	<form action="/watchlist/" method="post">{% csrf_token %}
+		<input type="hidden" name="username" value="{{username}}"/>
+		<input type="hidden" name="password" value="{{password}}"/>
+		<input type="submit" value="Go Back"/>
+	</form>
+{% else %}
+	<h3>Oops! We could not find your movie.</h3>
+	<form action="/watchlist/" method="post">{% csrf_token %}
+		<input type="hidden" name="username" value="{{username}}"/>
+		<input type="hidden" name="password" value="{{password}}"/>
+		<input type="submit" value="Go Back"/>
+	</form>
+{% endif %}
+{% endblock %}
+
+<!-- <form action="/home/" method="post">{% csrf_token %}
   <input type="hidden" name="username" value="{{username}}"/>
   <input type="hidden" name="password" value="{{password}}"/>
   <input type="submit" value="Go Back"/>
-</form>
+</form> -->

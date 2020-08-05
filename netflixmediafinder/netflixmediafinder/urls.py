@@ -25,9 +25,20 @@ urlpatterns = [
     path('register/', views.Register),
     path('login/', views.Login),
     path('newregistration/', views.NewRegistration),
-    path('home/', views.Home),
+    path('watchlist/', views.Watchlist),
     path('addmovie/', views.AddMovie),
     path('removemovie/', views.RemoveMovie),
     path('searchmovie/', views.SearchMovie),
     path('editrating/', views.EditRating),
+    path('', views.Login),
+    path('recommendations/', views.Recommendations),
+    path('userprofile/', views.UserProfile),
+
+    path('test_agreeableness/', views.Agreeableness),
+    path('test_conscientiousness/', views.Conscientiousness),
+    path('test_extraversion/', views.Extraversion),
+    path('test_neuroticism/', views.Neuroticism),
+    path('test_openness/', views.Openness),
+    path('updateattribute/', views.UpdateAttribute),
+    path('details/<show_id>', views.Details)
 ]

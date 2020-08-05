@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>{{title}} ({{releaseYear}})</h2>
+	<img src="{{poster_path}}" alt="{{title}} image" width=275 height=412>
+	<div>IMDB Rating: {{imdb_rating}}</div>
+	<div>Director: {{director}}</div>
+	<div>Genres: {{genres}}</div>
+	<div>Parental: {{parental}}</div>
+	<div>Runtime: {{duration}}</div>
+	<div>Description: {{description}}</div>
+	{% if review_url%}
+	<div>Movie review: <a href = {{review_url}} target = "_blank">NY Times</a></div>
+	{% endif%}
+{% endblock %}

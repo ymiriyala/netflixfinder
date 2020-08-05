@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body>
+  	<h1>User Recommendations</h1>
+  	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <!-- <th scope="col">Show Id</th> -->
+      <th scope="col">Director</th>
+      <th scope="col">Release Year</th>
+      <th scope="col">Parental</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Genres</th>
+      <th scope="col">Description</th>
+      <th scope="col">More Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for display in recommendations %}
+      <tr>
+        <!-- <th scope="row">{{display.1}}</th> -->
+        <td>{{display.0}}</td>
+        <!-- <td>{{display.1}}</td> -->
+        <td>{{display.7}}</td>
+        <td>{{display.2}}</td>
+        <td>{{display.3}}</td>
+        <td>{{display.4}}</td>
+        <td>{{display.5}}</td>
+        <td>{{display.6}}</td>
+        <td>
+        <!-- <form action="/home/" method="post">{% csrf_token %}
+			<input type="hidden" name="username" value="{{username}}"/>
+			<input type="hidden" name="password" value="{{password}}"/>
+			<input type="submit" value="Details"/>
+		</form> -->
+		<button><a href=/details/{{display.1}} target="_blank">Details</a></button>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<form action="/userprofile/" method="post">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Go Back"/>
+</form>
+{% endblock %}

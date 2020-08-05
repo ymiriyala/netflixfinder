@@ -1,7 +1,40 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex justify-content-center">
+      <form action="/newregistration/" method="post">{% csrf_token %}
+        <div>Please enter a username</div><input type="text" name="username" />
+        <br/>
+        <div>Please enter a password</div><input type="text" name="password" />
+        <br/>
+        <div>Please enter your name</div><input type="text" name="name" />
+        <br/>
+        <input type="submit" value="Register"/>
+      </form>
+    </div>
+    <p style="text-align:center; top-margin:30px">As part of our movie recommendation process, we try to match movies that fit your personality according to the 5 factor model. The default values are set to 3 out of 5. We encourage you to take the personality surveys on your profile page to more accurately determine your 5 factor values. Thank you and happy watching.</p> 
+{% endblock %}
+
+<!-- <!DOCTYPE html>
   <form action="/newregistration/" method="post">{% csrf_token %}
     <input type="text" name="username" />
     <input type="text" name="password" />
     <input type="text" name="name" />
     <input type="submit" value="Register"/>
-</html>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<div class="d-flex justify-content-center">
+  <form action="/newregistration/" method="post">{% csrf_token %}
+    <div>Please enter a username</div><input type="text" name="username" />
+    <br/>
+    <div>Please enter a password</div><input type="text" name="password" />
+    <br/>
+    <div>Please enter your name</div><input type="text" name="name" />
+    <br/>
+    <input type="submit" value="Register"/>
+<div>
+</html> -->
