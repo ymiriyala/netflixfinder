@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Test results</h1>
+<div>Your score for {{attribute}} is : {{computedScore}}</div>
+<form action="/userprofile/" method="post">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Finish"/>
+</form>
+{% endblock %}

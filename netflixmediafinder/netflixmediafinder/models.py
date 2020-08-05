@@ -18,6 +18,7 @@ class insertMovie(models.Model):
 
 class removeMovie(models.Model):
     titleId = models.CharField(max_length=128)
+    watchId = models.IntegerField(max_length=11)
     userId = models.IntegerField(11)
     username = models.CharField(max_length=128)
     password = models.CharField(max_length=128)

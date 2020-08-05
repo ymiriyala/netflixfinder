@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1> Neuroticism test </h1>
+	<form action="/userprofile/" method="post">{% csrf_token %}
+	    <input type="hidden" name="username" value="{{username}}"/>
+	    <input type="hidden" name="password" value="{{password}}"/>
+	    <input type="submit" value="Return to Profile"/>
+  	</form>
+    <p style="font-style:italic">The test was taken from https://www.psychologistworld.com/influence-personality/five-factor-test/test</p>
+  	<div>Please enter your answer to these questions with 5 being strongly agree and 1 being strongly disagree</div>
+	<form action="/updateattribute/" method="post">{% csrf_token %}
+  <input type="hidden" name="username" value="{{username}}"/>
+	<input type="hidden" name="password" value="{{password}}"/>
+	<input type="hidden" name="attribute" value="neuroticism"/>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Would you describe yourself as moody?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you worry about a lot of things?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you dislike insults?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q3">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you get easily irritated?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q4">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you often have quick lapses of emotion?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q5">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you easily get stressed?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q6">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you often fear the worst?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q7">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Would you say that you are tempermental?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q8">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Do you get bothered by things that aren't done the way you like?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q9">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Would you describe life as a swing?</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="q10">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+    <input type="submit"/>
+
+  </form>
+{% endblock %}

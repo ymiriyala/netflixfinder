@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="text-align: center">
+  <form action="/watchlist/" method="post" style="padding: 12px;">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="View Watchlist" />
+  </form>
+
+  <form action="/recommendations/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Get Recommendations" />
+  </form>
+
+  <form action="/test_openness/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Test Openness to Experience" />
+  </form>
+
+  <form action="/test_conscientiousness/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Test Conscientiousness" />
+  </form>
+
+  <form action="/test_extraversion/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Test Extraversion" />
+  </form>
+
+  <form action="/test_agreeableness/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Test Agreeableness" />
+  </form>
+
+  <form action="/test_neuroticism/" method="post" style="padding: 12px">{% csrf_token %}
+    <input type="hidden" name="username" value="{{username}}"/>
+    <input type="hidden" name="password" value="{{password}}"/>
+    <input type="submit" value="Test Neuroticism" />
+  </form>
+</div>
+
+
+  <!-- <div>Agreeableness: {{agreeableness}} </div>
+  <div>Conscientiousness: {{conscientiousness}} </div>
+  <div>Extraversion: {{extraversion}} </div>
+  <div>Neuroticism: {{neuroticism}} </div>
+  <div>Openness: {{openness}} </div> -->
+
+{% endblock %}

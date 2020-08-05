@@ -1,4 +1,47 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2 style="padding-left: 1%">Search Movies in Database</h2>
+	<h1>{{name}}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+      	<!-- <th scope="col">title Id<th> -->
+        <th scope="col">Movie Title</th>
+        <th scope="col">Year</th>
+        <th scope="col">Run Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for display in results %}
+      <tr>
+        <!-- <th scope="row">{{display.1}}</th> -->
+        <td>{{display.4}}</td>
+
+        {% if display.6 %}
+        <td>{{display.6}}</td>
+        {% else %}
+        <td>{{display.6}}</td>
+        {% endif %}
+
+        {% if display.5 %}
+        <td>{{display.5}}m</td>
+        {% else %}
+        <td>{{display.5}}</td>
+        {% endif %}
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+	<form action="/login/" method="post">{% csrf_token %}
+	  <input type="submit" value="Login"/>
+	</form>
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
 </html>
 <h1>{{name}}</h1>
 <ul>
@@ -8,4 +51,4 @@
 </ul>
 <form action="/login/" method="post">{% csrf_token %}
   <input type="submit" value="Login"/>
-</form>
+</form> -->
